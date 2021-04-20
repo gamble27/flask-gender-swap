@@ -41,13 +41,16 @@ def upload_image():
     print(path)
     out_name = 'out'
     uploaded_image.save(path)
-    for gender in ['male', 'female']:
-        engine.transform_gender(
-            gender=gender,
-            input_path=config.input_dir,
-            input_name=uploaded_image.filename,
-            output_name_specif=out_name
-        )
+    try:
+        for gender in ['male', 'female']:
+            engine.transform_gender(
+                gender=gender,
+                input_path=config.input_dir,
+                input_name=uploaded_image.filename,
+                output_name_specif=out_name
+            )
+    except IndexError:
+        return "Sorry, we hadn't found any face on your image. Please, select another one"
 
     return redirect(url_for('results_page'))
 
