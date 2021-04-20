@@ -1,0 +1,10 @@
+# Created by .ignore support plugin (hsz.mobi)
+.idea/
+__pycache__/
+
+# ignore landmarking model
+static/landmarks
+static/landmarks.dat
+
+# ignore heavy model weights
+static/pix2pixHD/weights
